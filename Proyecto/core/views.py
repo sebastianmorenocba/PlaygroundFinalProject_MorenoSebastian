@@ -28,7 +28,6 @@ def estudiante_list(request):
     contexto = {"estudiante": consulta}
     return render(request, "core/estudiante_list.html", contexto)
 
-
 def estudiante_create(request):
     if request.method == "POST":
         form = forms.EstudianteForm(request.POST)
@@ -38,3 +37,18 @@ def estudiante_create(request):
     else:
         form = forms.EstudianteForm()
     return render(request, "core/estudiante_create.html", {"form": form})
+
+def curso_list(request):
+    consulta = models.Curso.objects.all()
+    contexto = {"curso": consulta}
+    return render(request, "core/curso_list.html", contexto)
+
+def curso_create(request):
+    if request.method == "POST":
+        form = forms.CursoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("curso_list")
+    else:
+        form = forms.CursoForm()
+    return render(request, "core/curso_create.html", {"form": form})
