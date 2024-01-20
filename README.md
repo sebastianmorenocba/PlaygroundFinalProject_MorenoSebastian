@@ -6,7 +6,19 @@
 
 ## Resumen del proyecto
 
-- Resumen
+- El proyecto representa una Plataforma de gestión de datos académicos, donde se puede observa que sus funcionalidad 
+pricipales son 
+
+Registro y Gestión -de Alumnos, Cursos y Profesores-:
+
+Formulario de registro para nuevos alumnos y profesores con información personal.
+Listados para ver el detalle completo de alumnos y profesores.
+
+Formulario de registro y visualización de los diferentes cursos, que a su vez se relacionan 
+con los datos de "Alumnos" y "Profesores".
+Funcionalidad para editar y eliminar -restringida a usuarios admnistradores- información de alumnos, cursos y profesores existentes.
+
+Relaciones entre alumnos, profesores y cursos para reflejar la inscripción en cursos y la asignación de profesores a cursos específicos.
 
 ## Pasos para ejecutar el proyecto
 
@@ -16,7 +28,7 @@
 
 - instalar las dependencias con pip requirements
 
-- como ejecutar el servidor
+- ejecutar el servidor
 
 ```
 codigo
