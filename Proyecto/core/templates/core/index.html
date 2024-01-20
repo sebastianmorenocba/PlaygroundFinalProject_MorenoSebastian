@@ -1,80 +1,153 @@
 {% extends 'core/base.html' %}
 
 {% block contenido %}
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('https://img.freepik.com/foto-gratis/cerca-manos-personas-que-trabajan-computadoras_53876-146042.jpg?w=996&t=st=1705700048~exp=1705700648~hmac=eef6f8c36e44514d7362d4c29700bd45502e3ebd8ad19027e04e7cb122d99e12'); 
-            background-size: cover;
-            background-position: center;
-        }
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('https://img.freepik.com/foto-gratis/cerca-manos-personas-que-trabajan-computadoras_53876-146042.jpg?w=996&t=st=1705700048~exp=1705700648~hmac=eef6f8c36e44514d7362d4c29700bd45502e3ebd8ad19027e04e7cb122d99e12');
+        background-size: cover;
+        background-position: center;
+    }
 
-        .overlay {
-            background-color: rgba(255, 255, 255, 0.8); 
-        }
+    .overlay {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
 
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(9, 9, 9, 0.1);
-        }
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(9, 9, 9, 0.1);
+    }
+    a {
+        text-align: center;
+        color: #50514fa1;
+    }
 
-        h1 {
-            text-align: center;
-            color: #50514fa1;
-        }
+    h1 {
+    text-align: center;
+    color: #092d59;
+    font-size: 45px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+}
 
-        .button-group {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
+h1::after {
+    content: "";
+    display: block;
+    width: 300px; 
+    height: 3px; 
+    background-color: #73859a;
+    margin: 10px auto; 
+}
 
-        .btn {
-            margin: 0 10px;
-            padding: 10px 20px;
-            text-decoration: none;
-            color: #fff;
-            background-color: #d0d8df;
-            border: 1px solid #000306;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #cdd1d6;
-        }
-
-        .btn-admin {
+    .button-group {
+        display: flex;
+        justify-content: center;
         margin-top: 20px;
+    }
+
+    .btn {
+        margin: 0 10px;
         padding: 10px 20px;
         text-decoration: none;
         color: #fff;
-        background-color: #007bff; /* You can adjust the color as needed */
-        border: 1px solid #0056b3; /* You can adjust the border color as needed */
+        background-color: #d0d8df;
+        border: 1px solid #000306;
         border-radius: 5px;
-        transition: background-color 0.3s ease;
+        transition: 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #2781ed;
+    }
+
+    .dropdown {
+        position: relative;
         display: inline-block;
-        }
-    </style>
+    }
 
-    <div class="overlay">
-        <div class="container">
-            
-            <h1>Sistema de Autogestión</h1>
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f3f3f3;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
 
-            <div class="button-group">
-                <button class="btn"><a href="{% url 'profesor_list' %}">Ver Profesores</a></button>
-                <button class="btn"><a href="{% url 'profesor_create' %}">Crear Profesor</a></button>
-                <button class="btn"><a href="{% url 'estudiante_list' %}">Ver Estudiantes</a></button>
-                <button class="btn"><a href="{% url 'estudiante_create' %}">Crear Estudiante</a></button>
-                <button class="btn"><a href="{% url 'curso_list' %}">Ver Cursos</a></button>
-                <button class="btn"><a href="{% url 'curso_create' %}">Crear Curso</a></button>
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    border-bottom: 2px solid #8f3d3d; 
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f8a7a7;
+}
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .dropdown-btn {
+        padding: 10px 20px;
+        text-decoration: none;
+        text-align: justify;
+        color: #fff;
+        background-color: #a1a1a1;
+        border: 1px solid #6b6b6b62;
+        border-radius: 18px;
+        transition: 0.7s ease;
+    }
+
+    .dropdown-btn:hover {
+        background-color: #4e82b7;
+    }
+</style>
+
+<div class="overlay">
+    <div class="container">
+        <h1>Sistema de Gestión Académica</h1>
+
+        <div class="button-group">
+            <div class="dropdown">
+                <button class="btn dropdown-btn">Alumnos</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'estudiante_list' %}">Ver Estudiantes</a>
+                    <a href="{% url 'estudiante_create' %}">Crear Estudiante</a>
+                </div>
             </div>
+
+            <div class="dropdown">
+                <button class="btn dropdown-btn">Profesores</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'profesor_list' %}">Ver Profesores</a>
+                    <a href="{% url 'profesor_create' %}">Crear Profesor</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn dropdown-btn">Cursos</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'curso_list' %}">Ver Cursos</a>
+                    <a href="{% url 'curso_create' %}">Crear Curso</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn dropdown-btn">Administración</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'admin:index' %}"> Login </a>
         </div>
     </div>
+</div>
+
 {% endblock contenido %}
