@@ -6,12 +6,10 @@
 
 ## Resumen del proyecto
 
-- El proyecto representa una Plataforma de gestión de datos académicos, donde se puede observa que sus funcionalidad 
-pricipales son 
+El proyecto representa una Plataforma de gestión de datos académicos, donde se puede observar que sus funcionalidad 
+pricipales son el Registro y Gestión -de Alumnos, Cursos y Profesores-:
 
-Registro y Gestión -de Alumnos, Cursos y Profesores-:
-
-Formulario de registro para nuevos alumnos y profesores con información personal.
+Formularios de registro para nuevos alumnos y profesores con información personal.
 Listados para ver el detalle completo de alumnos y profesores.
 
 Formulario de registro y visualización de los diferentes cursos, que a su vez se relacionan 
