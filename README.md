@@ -32,18 +32,18 @@ git clone https://github.com/sebastianmorenocba/TuPrimeraPagina-Moreno.git
 (codigo ".\.venv\Scripts\activate")
 ``` 
 
-- instalar las dependencias con pip requirements 
+- Instalar las dependencias con pip requirements 
 ``` 
-("pip install -r requirements.txt")
+"pip install -r requirements.txt"
 ``` 
 
-- instalar Django
+- Instalar Django
 
 ``` 
 "pip install django"
 ``` 
 
-- ingresar a la carpeta 'Proyecto' ("cd proyecto")
+- Ingresar a la carpeta 'Proyecto' ("cd proyecto")
 
 - Ejecutar servidor
 ``` 
