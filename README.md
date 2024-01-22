@@ -22,12 +22,16 @@ Relaciones entre alumnos, profesores y cursos para reflejar la inscripción en c
 
 - link de GitHub https://github.com/sebastianmorenocba/TuPrimeraPagina-Moreno.git
 
-- creación del entorno virtual
+- descargar proyecto ("git clone https://github.com/sebastianmorenocba/TuPrimeraPagina-Moreno.git")
 
-- instalar las dependencias con pip requirements
+- Activar enntor virtual (".\.venv\Scripts\activate")
 
-- ejecutar el servidor
+- instalar las dependencias con pip requirements ("pip install -r requirements.txt")
 
-```
-codigo
-```
+- instalar Django ("pip install django")
+
+- ingresar a la carpeta 'Proyecto' ("cd proyecto")
+
+- Ejecutar ("python manage.py runserver")
+
+
