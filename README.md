@@ -34,13 +34,13 @@ git clone https://github.com/sebastianmorenocba/TuPrimeraPagina-Moreno.git
 
 - Instalar las dependencias con pip requirements 
 ``` 
-"pip install -r requirements.txt"
+pip install -r requirements.txt
 ``` 
 
 - Instalar Django
 
 ``` 
-"pip install django"
+pip install django
 ``` 
 
 - Ingresar a la carpeta 'Proyecto' ("cd proyecto")
