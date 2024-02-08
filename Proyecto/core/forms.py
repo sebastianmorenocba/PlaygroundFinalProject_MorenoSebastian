@@ -13,7 +13,7 @@ class ClienteForm(forms.ModelForm):
         model = models.Cliente
         fields = "__all__"
 
-class CursoForm(forms.ModelForm):
+class VehiculoForm(forms.ModelForm):
     class Meta:
-        model = models.Curso
+        model = models.Vehiculo
         fields = "__all__"

@@ -19,18 +19,20 @@ class Cliente(models.Model):
         return f"{self.nombre} {self.apellido}"
 
 
-class Curso(models.Model):
-    nombre = models.CharField(max_length=50)
-    comision = models.PositiveIntegerField()
-    profesor = models.ForeignKey(Mecanico, on_delete=models.SET_NULL, null=True, blank=True)
+class Vehiculo(models.Model):
+    marca = models.CharField(max_length=50)
+    modelo = models.CharField(max_length=50)
+    dominio = models.CharField(max_length=50)
+    mecanico = models.ForeignKey(Mecanico, on_delete=models.SET_NULL, null=True, blank=True)
+    cliente = models.ForeignKey(Cliente, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self) -> str:
-        return f"{self.nombre} ({self.comision}) - {self.profesor}"
+        return f"{self.marca} ({self.modelo}) - {self.mecanico}"
 
 
-class CursoEstudiantes(models.Model):
-    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
-    estudiante = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+class VehiculoCliente(models.Model):
+    vehiculo = models.ForeignKey(Vehiculo, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return f"{self.curso} {self.estudiante}"
+        return f"{self.vehiculo} {self.cliente}"

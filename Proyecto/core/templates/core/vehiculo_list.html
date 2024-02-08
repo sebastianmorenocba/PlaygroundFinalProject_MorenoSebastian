@@ -84,18 +84,24 @@
 }
     </style>
 
-<h1>LISTADO DE CURSOS</h1>
+<h1>LISTADO DE VEHICULOS</h1>
 
-{% for curso in curso %}
+{% for vehiculo in vehiculo %}
 <ul>
     <li>
-        <strong>Nombre:</strong> {{ curso.nombre }}
+        <strong>Marca:</strong> {{ vehiculo.marca }}
     </li>
     <li>
-        <strong>Comisión:</strong> {{ curso.comision }}
+        <strong>Modelo:</strong> {{ vehiculo.modelo }}
     </li>
     <li>
-        <strong>Profesor:</strong> {{ curso.profesor }}
+        <strong>Dominio:</strong> {{ vehiculo.dominio }}
+    </li>
+    <li>
+        <strong>Mecanico:</strong> {{ vehiculo.mecanico }}
+    </li>
+    <li>
+        <strong>Cliente:</strong> {{ vehiculo.cliente }}
     </li>
 </ul>
 

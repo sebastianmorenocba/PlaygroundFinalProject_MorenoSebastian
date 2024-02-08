@@ -38,17 +38,17 @@ def cliente_create(request):
         form = forms.ClienteForm()
     return render(request, "core/cliente_create.html", {"form": form})
 
-def curso_list(request):
-    consulta = models.Curso.objects.all()
-    contexto = {"curso": consulta}
-    return render(request, "core/curso_list.html", contexto)
+def vehiculo_list(request):
+    consulta = models.Vehiculo.objects.all()
+    contexto = {"vehiculo": consulta}
+    return render(request, "core/vehiculo_list.html", contexto)
 
-def curso_create(request):
+def vehiculo_create(request):
     if request.method == "POST":
-        form = forms.CursoForm(request.POST)
+        form = forms.VehiculoForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("curso_list")
+            return redirect("vehiculo_list")
     else:
-        form = forms.CursoForm()
-    return render(request, "core/curso_create.html", {"form": form})
+        form = forms.VehiculoForm()
+    return render(request, "core/vehiculo_create.html", {"form": form})
