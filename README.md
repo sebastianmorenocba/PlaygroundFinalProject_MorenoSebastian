@@ -6,8 +6,7 @@
 
 ## Resumen del proyecto
 
-El proyecto representa una Plataforma de gestión de datos académicos, donde se puede observar que sus funcionalidad 
-pricipales son el Registro y Gestión -de Alumnos, Cursos y Profesores-:
+El proyecto representa una Plataforma de gestión de reparaciones en un taller mecánico, donde se puede observar que sus funcionalidad pricipales son el Registro y Gestión -de Clientes, -:
 
 Formularios de registro para nuevos alumnos y profesores con información personal.
 Listados para ver el detalle completo de alumnos y profesores.
