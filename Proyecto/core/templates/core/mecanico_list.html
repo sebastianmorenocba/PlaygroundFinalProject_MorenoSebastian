@@ -85,24 +85,23 @@
 }
     </style>
 
-<h1>LISTADO DE PROFESORES</h1>
+<h1>LISTADO DE MECANICOS</h1>
 
-<div class="professors-list">
-    {% for profesor in profesores %}
-        <ul class="professor-info">
-            <li>
-                <strong>Nombre:</strong> {{ profesor.nombre }}
-            </li>
-            <li>
-                <strong>Apellido:</strong> {{ profesor.apellido }}
-            </li>
-            <li>
-                <strong>Email:</strong> {{ profesor.email }}
-            </li>
-        </ul>
-    {% endfor %}
-</div>
+{% for mecanico in mecanico %}
+<ul>
+    <li>
+        <strong>Nombre:</strong> {{ mecanico.nombre }}
+    </li>
+    <li>
+        <strong>Apellido:</strong> {{ mecanico.apellido }}
+    </li>
+    <li>
+        <strong>Email:</strong> {{ mecanico.email }}
+    </li>
+</ul>
 
-<button class="btn2"><a href="{% url 'index' %}">Volver a inicio</a></button>
 
+{% endfor %}
+
+<button class="btn2"><a href="{% url 'index' %}">Volver a nicio</a></button>
 {% endblock contenido %}

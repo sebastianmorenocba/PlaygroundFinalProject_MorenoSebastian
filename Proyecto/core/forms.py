@@ -3,9 +3,9 @@ from django import forms
 from . import models
 
 
-class ProfesorForm(forms.ModelForm):
+class MecanicoForm(forms.ModelForm):
     class Meta:
-        model = models.Profesor
+        model = models.Mecanico
         fields = "__all__"
 
 class EstudianteForm(forms.ModelForm):
