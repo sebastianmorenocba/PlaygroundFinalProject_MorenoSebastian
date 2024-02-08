@@ -8,9 +8,9 @@ class MecanicoForm(forms.ModelForm):
         model = models.Mecanico
         fields = "__all__"
 
-class EstudianteForm(forms.ModelForm):
+class ClienteForm(forms.ModelForm):
     class Meta:
-        model = models.Estudiante
+        model = models.Cliente
         fields = "__all__"
 
 class CursoForm(forms.ModelForm):

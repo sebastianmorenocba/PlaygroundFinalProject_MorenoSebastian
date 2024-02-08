@@ -23,20 +23,20 @@ def mecanico_create(request):
         form = forms.MecanicoForm()
     return render(request, "core/mecanico_create.html", {"form": form})
 
-def estudiante_list(request):
-    consulta = models.Estudiante.objects.all()
-    contexto = {"estudiante": consulta}
-    return render(request, "core/estudiante_list.html", contexto)
+def cliente_list(request):
+    consulta = models.Cliente.objects.all()
+    contexto = {"cliente": consulta}
+    return render(request, "core/cliente_list.html", contexto)
 
-def estudiante_create(request):
+def cliente_create(request):
     if request.method == "POST":
-        form = forms.EstudianteForm(request.POST)
+        form = forms.ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("estudiante_list")
+            return redirect("cliente_list")
     else:
-        form = forms.EstudianteForm()
-    return render(request, "core/estudiante_create.html", {"form": form})
+        form = forms.ClienteForm()
+    return render(request, "core/cliente_create.html", {"form": form})
 
 def curso_list(request):
     consulta = models.Curso.objects.all()

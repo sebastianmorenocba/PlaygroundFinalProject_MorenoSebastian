@@ -10,7 +10,7 @@ class Mecanico(models.Model):
         return f"{self.nombre} {self.apellido}"
 
 
-class Estudiante(models.Model):
+class Cliente(models.Model):
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
     email = models.EmailField()
@@ -30,7 +30,7 @@ class Curso(models.Model):
 
 class CursoEstudiantes(models.Model):
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
-    estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
+    estudiante = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return f"{self.curso} {self.estudiante}"
