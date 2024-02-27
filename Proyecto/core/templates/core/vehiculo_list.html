@@ -2,7 +2,7 @@
 
 {% block contenido %}
 
-    <style>
+<style>
     body {
         font-family: 'Arial', sans-serif;
         margin: 0;
@@ -14,7 +14,7 @@
 
     .overlay {
         background-color: rgba(255, 255, 255, 0.8);
-        height: 100vh;
+        min-height: 100vh; /* Modificado para ocupar al menos la altura de la ventana */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -26,16 +26,19 @@
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(9, 9, 9, 0.1);
         text-align: center;
+        z-index: 1; /* Agregado para controlar la elevación del contenedor */
     }
 
-    h1 { width: 70%;
-        padding: 8px;
+    h1 {
+        width: 50%;
+        margin: auto; /* Agregado para centrar horizontalmente */
+        padding: 4px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(15, 9, 15, 41);
-        text-align: justify;
+        text-align: center;
         color: #121212a1;
         background-color: rgba(255, 255, 255, 0.8);
-
+        margin-bottom: 20px;
     }
 
     .button-group {
@@ -54,60 +57,66 @@
         border-radius: 5px;
         transition: background-color 0.3s ease;
     }
-    .btn2 {
-        margin: 10px;
-        padding: 10px 20px;
-        text-decoration: none;
-        color: #f8f4f4;
-        background-color: #eff2f5;
-        border: 1px solid #0e7be8;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-        display: inline-block;
-    }
 
     .btn:hover {
         background-color: #cdd1d6;
     }
 
-    ul {
+    .list-container {
         list-style: none;
         padding: 0;
         margin-top: 20px;
+        margin-bottom: 20px; /* Agregado para dar espacio en la parte inferior del contenedor */
     }
 
-    li {
-    background-color: rgba(183, 183, 183, 0.7); 
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-}
-    </style>
+    .list-item {
+        background-color: rgba(183, 183, 183, 0.7);
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+    }
 
-<h1>LISTADO DE VEHICULOS</h1>
+    .btn-back {
+        margin: 10px;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #2035d3;
+        background-color: #dadadae4;
+        border: 2px solid #00060c;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+    }
 
-{% for vehiculo in vehiculo %}
-<ul>
-    <li>
-        <strong>Marca:</strong> {{ vehiculo.marca }}
-    </li>
-    <li>
-        <strong>Modelo:</strong> {{ vehiculo.modelo }}
-    </li>
-    <li>
-        <strong>Dominio:</strong> {{ vehiculo.dominio }}
-    </li>
-    <li>
-        <strong>Mecanico:</strong> {{ vehiculo.mecanico }}
-    </li>
-    <li>
-        <strong>Cliente:</strong> {{ vehiculo.cliente }}
-    </li>
-</ul>
+    .btn-back:hover {
+        background-color: #cdd1d6;
+    }
 
+    /* Agregado para controlar la elevación de la barra de navegación */
+    nav {
+        position: relative;
+        z-index: 2;
+    }
+</style>
 
-{% endfor %}
+<div class="overlay">
+    <div class="container">
+        <h1>LISTADO DE VEHÍCULOS</h1>
 
-<button class="btn2"><a href="{% url 'index' %}">Volver a nicio</a></button>
+        <ul class="list-container">
+            {% for vehiculo in vehiculo %}
+                <li class="list-item">
+                    <strong>Marca:</strong> {{ vehiculo.marca }}<br>
+                    <strong>Modelo:</strong> {{ vehiculo.modelo }}<br>
+                    <strong>Dominio:</strong> {{ vehiculo.dominio }}<br>
+                    <strong>Mecánico:</strong> {{ vehiculo.mecanico }}<br>
+                    <strong>Cliente:</strong> {{ vehiculo.cliente }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'index' %}" class="btn btn-back">Volver al Inicio</a>
+    </div>
+</div>
+
 {% endblock contenido %}
-

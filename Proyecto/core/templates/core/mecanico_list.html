@@ -1,6 +1,5 @@
 {% extends 'core/base.html' %}
 
-
 {% block contenido %}
 
 <style>
@@ -15,7 +14,7 @@
 
     .overlay {
         background-color: rgba(255, 255, 255, 0.8);
-        height: 100vh;
+        min-height: 100vh; /* Modificado para ocupar al menos la altura de la ventana */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -27,16 +26,19 @@
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(9, 9, 9, 0.1);
         text-align: center;
+        z-index: 1; /* Agregado para controlar la elevación del contenedor */
     }
 
-    h1 { width: 70%;
-        padding: 8px;
+    h1 {
+        width: 50%;
+        margin: auto; /* Agregado para centrar horizontalmente */
+        padding: 4px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(15, 9, 15, 41);
-        text-align: justify;
+        text-align: center;
         color: #121212a1;
         background-color: rgba(255, 255, 255, 0.8);
-
+        margin-bottom: 20px;
     }
 
     .button-group {
@@ -55,53 +57,64 @@
         border-radius: 5px;
         transition: background-color 0.3s ease;
     }
-    .btn2 {
+
+    .btn:hover {
+        background-color: #cdd1d6;
+    }
+
+    .list-container {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+        margin-bottom: 20px; /* Agregado para dar espacio en la parte inferior del contenedor */
+    }
+
+    .list-item {
+        background-color: rgba(183, 183, 183, 0.7);
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+    }
+
+    .btn-back {
         margin: 10px;
         padding: 10px 20px;
         text-decoration: none;
-        color: #f8f4f4;
-        background-color:   #dadadae4;
+        color: #2035d3;
+        background-color: #dadadae4;
         border: 2px solid #00060c;
         border-radius: 8px;
         transition: background-color 0.3s ease;
         display: inline-block;
     }
 
-    .btn:hover {
+    .btn-back:hover {
         background-color: #cdd1d6;
     }
 
-    ul {
-        list-style: none;
-        padding: 0;
-        margin-top: 20px;
+    /* Agregado para controlar la elevación de la barra de navegación */
+    nav {
+        position: relative;
+        z-index: 2;
     }
+</style>
 
-    li {
-    background-color: rgba(183, 183, 183, 0.7); 
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-}
-    </style>
+<div class="overlay">
+    <div class="container">
+        <h1>LISTADO DE MECÁNICOS</h1>
 
-<h1>LISTADO DE MECANICOS</h1>
+        <ul class="list-container">
+            {% for mecanico in mecanico %}
+                <li class="list-item">
+                    <strong>Nombre:</strong> {{ mecanico.nombre }}<br>
+                    <strong>Apellido:</strong> {{ mecanico.apellido }}<br>
+                    <strong>Email:</strong> {{ mecanico.email }}
+                </li>
+            {% endfor %}
+        </ul>
 
-{% for mecanico in mecanico %}
-<ul>
-    <li>
-        <strong>Nombre:</strong> {{ mecanico.nombre }}
-    </li>
-    <li>
-        <strong>Apellido:</strong> {{ mecanico.apellido }}
-    </li>
-    <li>
-        <strong>Email:</strong> {{ mecanico.email }}
-    </li>
-</ul>
+        <a href="{% url 'index' %}" class="btn btn-back">Volver al Inicio</a>
+    </div>
+</div>
 
-
-{% endfor %}
-
-<button class="btn2"><a href="{% url 'index' %}">Volver a nicio</a></button>
 {% endblock contenido %}

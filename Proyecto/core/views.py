@@ -6,6 +6,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
 
+def about(request):
+    return render(request, 'core/about.html')
+
 def login_view(request):
     form = AuthenticationForm(request, request.POST or None)
 
@@ -23,8 +26,10 @@ def login_view(request):
     return render(request, 'core/login.html', {'form': form})
 
 def logout_view(request):
+    username = request.user.username  # Obtener el nombre de usuario antes de cerrar sesión
     logout(request)
-    return redirect('index')  # Cambia 'index' al nombre de tu vista principal
+    messages.success(request, f'¡Hasta luego, {username}! Has cerrado sesión exitosamente.')
+    return redirect('index')  
 
 def register_view(request):
     if request.method == 'POST':

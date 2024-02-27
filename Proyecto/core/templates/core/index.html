@@ -1,3 +1,4 @@
+<!-- En templates/core/index.html -->
 {% extends 'core/base.html' %}
 
 {% block contenido %}
@@ -22,27 +23,23 @@
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(9, 9, 9, 0.1);
     }
-    a {
-        text-align: center;
-        color: #50514fa1;
-    }
 
     h1 {
-    text-align: center;
-    color: #092d59;
-    font-size: 45px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
-}
+        text-align: center;
+        color: #092d59;
+        font-size: 45px;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-h1::after {
-    content: "";
-    display: block;
-    width: 300px; 
-    height: 3px; 
-    background-color: #73859a;
-    margin: 10px auto; 
-}
+    h1::after {
+        content: "";
+        display: block;
+        width: 300px;
+        height: 3px;
+        background-color: #73859a;
+        margin: 10px auto;
+    }
 
     .button-group {
         display: flex;
@@ -71,33 +68,35 @@ h1::after {
     }
 
     .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f3f3f3;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
+        display: none;
+        position: absolute;
+        background-color: #f3f3f3;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
 
-.dropdown-content a {
-    display: block;
-    padding: 10px;
-    border-bottom: 2px solid #8f3d3d; 
-    text-decoration: none;
-    color: #333;
-    transition: background-color 0.3s ease;
-}
+    .dropdown-content a {
+        display: block;
+        padding: 10px;
+        border-bottom: 2px solid #8f3d3d;
+        text-decoration: none;
+        color: #333;
+        transition: background-color 0.3s ease;
+    }
 
-.dropdown-content a:last-child {
-    border-bottom: none;
-}
+    .dropdown-content a:last-child {
+        border-bottom: none;
+    }
 
-.dropdown-content a:hover {
-    background-color: #f8a7a7;
-}
+    .dropdown-content a:hover {
+        background-color: #f8a7a7;
+    }
+
     .dropdown:hover .dropdown-content {
         display: block;
     }
+
     .dropdown-btn {
         padding: 10px 20px;
         text-decoration: none;
@@ -112,6 +111,16 @@ h1::after {
     .dropdown-btn:hover {
         background-color: #4e82b7;
     }
+
+    /* Nuevos estilos para el mensaje de despedida */
+    .message-box {
+        text-align: center;
+        color: #fff;
+        background-color: #4CAF50;  /* Color verde (puedes ajustar el color según tus preferencias) */
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
 </style>
 
 <div class="overlay">
@@ -119,7 +128,13 @@ h1::after {
         <h1>Plataforma</h1>
         <h1>Service Mecanico</h1>
 
-        </div>
+        {% if messages %}
+    <div class="message-box">
+        {% for message in messages %}
+            <h3>{{ message }}</h3>
+        {% endfor %}
+    </div>
+{% endif %}
     </div>
 </div>
 

@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+<style>
+    .overlay {
+        background-color: rgba(255, 255, 255, 0.9);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        width: 60%;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(9, 9, 9, 0.1);
+        text-align: center;
+    }
+
+    h1 {
+        color: #060c01a1;
+    }
+
+    p {
+        color: #060b01a1;
+    }
+
+    .btn {
+        margin: 10px;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #6c757d;
+        border: 1px solid #495057;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+    }
+
+    .btn2 {
+        margin: 10px;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #f8f4f4;
+        background-color: #eff2f5;
+        border: 1px solid #0e7be8;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+    }
+
+    .btn:hover {
+        background-color: #02121e;
+    }
+</style>
+
+<div class="overlay">
+    <div class="container">
+        <h1>Acerca de Mí</h1>
+        <p>Bienvenidos a mi página. Mi nombre es Sebastián Moreno, tengo 39 años de edad, de profesión abogado. Este es el resultado de mi primer curso introductorio a la programación en CoderHouse. Espero les sea de agrado. Gracias por visitarme!</p>
+    </div>
+</div>
+{% endblock contenido %}

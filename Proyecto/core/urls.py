@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.urls import path
 
 # LOGIN LOGOUT Y REGISTER
-from .views import login_view, logout_view, register_view, index
+from .views import *
 
 
 
@@ -22,4 +22,5 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('register/', register_view, name='register'),
     path('index/', index, name='index'),
+    path('about/', views.about, name='about'),
 ]

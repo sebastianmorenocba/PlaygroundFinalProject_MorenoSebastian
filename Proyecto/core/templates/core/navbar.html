@@ -43,26 +43,38 @@
         .navbar a:hover {
             background-color: #7479ea;
         }
+
+        /* Nuevo estilo para el texto de bienvenida */
+        .welcome-message {
+            color: #3498db;  /* Azul claro (#3498db es un azul claro típico) */
+            background-color: #333;  /* Mantener el fondo oscuro */
+            padding: 10px 15px;  /* Ajusta el espaciado según sea necesario */
+            border-radius: 5px;  /* Borde redondeado */
+        }
     </style>
 </head>
 
 <body>
     <nav>
-        <ul class="navbar">
-            <li><a href="{% url 'cliente_list' %}">Ver clientes</a></li>
-            <li><a href="{% url 'cliente_create' %}">Crear cliente</a></li>
-            <li><a href="{% url 'mecanico_list' %}">Ver Mecanicos</a></li>
-            <li><a href="{% url 'mecanico_create' %}">Crear Mecanico</a></li>
-            <li><a href="{% url 'vehiculo_list' %}">Ver Vehiculos</a></li>
-            <li><a href="{% url 'vehiculo_create' %}">Crear Vehiculo</a></li>
-            
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
-            {% else %}
-                <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
-                <li><a href="{% url 'register' %}">Registrarse</a></li>
-            {% endif %}
-        </ul>
+        <div class="navbar">
+            <ul class="navbar">
+                <li><a href="{% url 'cliente_list' %}">Ver clientes</a></li>
+                <li><a href="{% url 'cliente_create' %}">Crear cliente</a></li>
+                <li><a href="{% url 'mecanico_list' %}">Ver Mecanicos</a></li>
+                <li><a href="{% url 'mecanico_create' %}">Crear Mecanico</a></li>
+                <li><a href="{% url 'vehiculo_list' %}">Ver Vehiculos</a></li>
+                <li><a href="{% url 'vehiculo_create' %}">Crear Vehiculo</a></li>
+        
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                    <li><span class="welcome-message">Bienvenido, {{ user.username }}!</span></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+                    <li><a href="{% url 'register' %}">Registrarse</a></li>
+                    <li><a href="{% url 'about' %}">Sobre Nosotros</a></li>
+                {% endif %}
+            </ul>
+        </div>
     </nav>
 </body>
 </html>
