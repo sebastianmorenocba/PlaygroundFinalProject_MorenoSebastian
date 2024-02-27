@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+<div class="overlay">
+    <div class="container">
+        <h1>Registro</h1>
+
+        <form method="post" class="form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Registrarse</button>
+        </form>
+        
+        <div class="button-group">
+            <a href="{% url 'login' %}" class="btn">Iniciar Sesión</a>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

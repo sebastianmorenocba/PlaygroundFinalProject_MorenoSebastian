@@ -1,6 +1,43 @@
 from django.shortcuts import redirect, render
-
 from . import forms, models
+
+#login logout y register
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib import messages
+
+def login_view(request):
+    form = AuthenticationForm(request, request.POST or None)
+
+    if request.method == 'POST' and form.is_valid():
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            next_url = request.POST.get('next', '/')
+            return redirect(next_url)
+        else:
+            messages.error(request, 'Usuario o contraseña no válidos. Inténtalo de nuevo.')
+    return render(request, 'core/login.html', {'form': form})
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')  # Cambia 'index' al nombre de tu vista principal
+
+def register_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Cuenta creada para {username}!')
+            return redirect('login')  # Cambia 'login' al nombre de tu vista de inicio de sesión
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'core/register.html', {'form': form})
 
 
 def index(request):

@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 
 from . import models
 
@@ -17,3 +19,9 @@ class VehiculoForm(forms.ModelForm):
     class Meta:
         model = models.Vehiculo
         fields = "__all__"
+
+class CustomAuthenticationForm(AuthenticationForm):
+    # Agrega cualquier campo adicional o personalización si es necesario
+    class Meta:
+        model = User  # Reemplaza con tu modelo de Usuario
+        fields = ['username', 'password']

@@ -1,9 +1,10 @@
 from django.urls import path
-
 from . import views
-
 from django.contrib import admin
 from django.urls import path
+
+# LOGIN LOGOUT Y REGISTER
+from .views import login_view, logout_view, register_view, index
 
 
 
@@ -16,4 +17,9 @@ urlpatterns = [
     path("vehiculo/list", views.vehiculo_list, name="vehiculo_list"),
     path("vehiculo/create", views.vehiculo_create, name="vehiculo_create"),
     path('admin/', admin.site.urls),
+
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
+    path('register/', register_view, name='register'),
+    path('index/', index, name='index'),
 ]
