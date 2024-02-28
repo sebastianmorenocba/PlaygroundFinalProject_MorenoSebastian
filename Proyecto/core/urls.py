@@ -16,6 +16,8 @@ urlpatterns = [
     path("cliente/create", views.cliente_create, name="cliente_create"),
     path("vehiculo/list", views.vehiculo_list, name="vehiculo_list"),
     path("vehiculo/create", views.vehiculo_create, name="vehiculo_create"),
+    path("servicio/list", views.servicio_list, name="servicio_list"),
+    path("servicio/create", views.servicio_create, name="servicio_create"),
     path('admin/', admin.site.urls),
 
     path('login/', login_view, name='login'),

@@ -1,0 +1,121 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('https://img.freepik.com/foto-gratis/cerca-manos-personas-que-trabajan-computadoras_53876-146042.jpg?w=996&t=st=1705700048~exp=1705700648~hmac=eef6f8c36e44514d7362d4c29700bd45502e3ebd8ad19027e04e7cb122d99e12');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .overlay {
+        background-color: rgba(255, 255, 255, 0.8);
+        min-height: 100vh; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        width: 60%;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(9, 9, 9, 0.1);
+        text-align: center;
+        z-index: 1; 
+    }
+
+    h1 {
+        width: 50%;
+        margin: auto; 
+        padding: 4px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(15, 9, 15, 41);
+        text-align: center;
+        color: #121212a1;
+        background-color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 20px;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .btn {
+        margin: 0 10px;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #d0d8df;
+        border: 1px solid #000306;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #cdd1d6;
+    }
+
+    .list-container {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+        margin-bottom: 20px; 
+    }
+
+    .list-item {
+        background-color: rgba(183, 183, 183, 0.7);
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+    }
+
+    .btn-back {
+        margin: 10px;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #2035d3;
+        background-color: #dadadae4;
+        border: 2px solid #00060c;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+    }
+
+    .btn-back:hover {
+        background-color: #cdd1d6;
+    }
+
+    
+    nav {
+        position: relative;
+        z-index: 2;
+    }
+</style>
+<div class="overlay">
+    <div class="container">
+        <h1>Lista de Servicios</h1>
+
+        <ul class="list-container">
+            {% for servicio in servicio %}
+            <li class="list-item">
+            Servicio: {{ servicio.nombre }}<br>
+            Fecha de realización: {{ servicio.fecha_servicio }}<br>
+            Costo: ${{ servicio.costo_reparacion }}<br>
+            Responsable de Taller: {{ servicio.mecanico }}<br>
+            Cliente: {{ servicio.cliente }}<br>
+ </li>
+            {% endfor %}
+        </ul>
+        <h2>
+            <button class="btn2"><a href="{% url 'index' %}" class="btn btn-back">Volver al Inicio</a>
+        </h2>
+    </div>
+</div>
+{% endblock contenido %}

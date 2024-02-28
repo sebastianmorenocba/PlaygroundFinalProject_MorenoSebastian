@@ -64,6 +64,8 @@
                 <li><a href="{% url 'mecanico_create' %}">Crear Mecanico</a></li>
                 <li><a href="{% url 'vehiculo_list' %}">Ver Vehiculos</a></li>
                 <li><a href="{% url 'vehiculo_create' %}">Crear Vehiculo</a></li>
+                <li><a href="{% url 'servicio_list' %}">Ver Servicios</a></li>
+                <li><a href="{% url 'servicio_create' %}">Crear Servicio</a></li>
         
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
@@ -71,7 +73,7 @@
                 {% else %}
                     <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
                     <li><a href="{% url 'register' %}">Registrarse</a></li>
-                    <li><a href="{% url 'about' %}">Sobre Nosotros</a></li>
+                    <li><a href="{% url 'about' %}">Acerca de Mí    </a></li>
                 {% endif %}
             </ul>
         </div>

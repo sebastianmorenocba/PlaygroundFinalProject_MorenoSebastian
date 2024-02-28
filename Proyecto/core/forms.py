@@ -25,3 +25,13 @@ class CustomAuthenticationForm(AuthenticationForm):
     class Meta:
         model = User  # Reemplaza con tu modelo de Usuario
         fields = ['username', 'password']
+
+class ServicioForm(forms.ModelForm):
+    class Meta:
+        model = models.Servicio
+        fields = "__all__"
+        widgets = {
+            'fecha_servicio': forms.DateInput(attrs={'type': 'date'}),
+            'costo_reparacion': forms.TextInput(attrs={'placeholder': '$'}),
+        }
+        

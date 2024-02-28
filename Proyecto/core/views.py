@@ -94,3 +94,18 @@ def vehiculo_create(request):
     else:
         form = forms.VehiculoForm()
     return render(request, "core/vehiculo_create.html", {"form": form})
+
+def servicio_list(request):
+    consulta = models.Servicio.objects.all()
+    contexto = {"servicio": consulta}
+    return render(request, "core/servicio_list.html", contexto)
+
+def servicio_create(request):
+    if request.method == "POST":
+        form = forms.ServicioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("servicio_list")
+    else:
+        form = forms.ServicioForm()
+    return render(request, "core/servicio_create.html", {"form": form})
