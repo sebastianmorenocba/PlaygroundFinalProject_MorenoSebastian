@@ -21,6 +21,7 @@
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(9, 9, 9, 0.1);
+        position: relative;
     }
 
     h1 {
@@ -42,7 +43,7 @@
 
     .button-group {
         display: flex;
-        justify-content: center;
+        justify-content: y;
         margin-top: 20px;
     }
 
@@ -120,6 +121,23 @@
         border-radius: 5px;
         margin-top: 20px;
     }
+
+    .social-icons {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        display: flex;
+    }
+
+    .social-icons a {
+        margin-right: 10px;
+        text-decoration: none;
+    }
+
+    .social-icons img {
+        width: 40px;  /* Ajusta el tamaño según sea necesario */
+        height: auto;
+    }
 </style>
 
 <div class="overlay">
@@ -128,12 +146,26 @@
         <h1>Service Mecanico</h1>
 
         {% if messages %}
-    <div class="message-box">
-        {% for message in messages %}
-            <h3>{{ message }}</h3>
-        {% endfor %}
+            <div class="message-box">
+                {% for message in messages %}
+                    <h3>{{ message }}</h3>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
-{% endif %}
+
+    <div class="social-icons">
+        <a href="https://wa.me/543517034177" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/598px-WhatsApp.svg.png" alt="WhatsApp">
+        </a>
+        <a href="https://www.linkedin.com/in/sebastian-alejandro-moreno-55490110a/" target="_blank">
+            <img src=https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png alt="LinkedIn">
+        </a>
+        <a href="https://github.com/sebastianmorenocba/" target="_blank">
+            <img src=https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg alt="Github">
+        <a href="mailto:sebastian.almoreno@outlook.es" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Email_Shiny_Icon.svg" alt="Correo Electrónico">    
+        </a>
     </div>
 </div>
 
