@@ -14,9 +14,10 @@ class Cliente(models.Model):
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
     email = models.EmailField()
+    celular = models.CharField(max_length=15, null=True, blank=True) 
 
     def __str__(self) -> str:
-        return f"{self.nombre} {self.apellido}"
+        return f"{self.nombre} {self.apellido} {self.celular}"
 
 
 class Vehiculo(models.Model):

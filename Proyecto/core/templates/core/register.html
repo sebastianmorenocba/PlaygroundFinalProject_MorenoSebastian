@@ -1,6 +1,44 @@
 {% extends 'core/base.html' %}
 
 {% block contenido %}
+<style>
+    .overlay {
+        background: rgba(0, 0, 0, 0.5); /* Agregar un fondo oscuro semi-transparente */
+        padding: 20px;
+        border-radius: 10px; /* Agregar bordes redondeados */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agregar sombras */
+        margin: 20px auto;
+        width: 80%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .container {
+        color: #fff; /* Cambiar el color del texto a blanco */
+    }
+
+    .form {
+        margin-top: 20px;
+    }
+
+    .btn {
+        background-color: #3498db; /* Cambiar el color de fondo del botón */
+        color: #fff; /* Cambiar el color del texto del botón */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px; /* Agregar bordes redondeados al botón */
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #2980b9; /* Cambiar el color de fondo del botón al pasar el mouse */
+    }
+
+    .button-group {
+        margin-top: 20px;
+    }
+</style>
+
 <div class="overlay">
     <div class="container">
         <h1>Registro</h1>
